@@ -1,0 +1,262 @@
+/* Authentication Section */
+.auth-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px; /* Ensure padding is applied */
+    background-color: var(--color-background); /* Fallback background */
+    overflow: hidden;
+}
+
+.auth-section.auth-video-background {
+    padding: 0; /* Remove default padding when video background is used */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-section .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2; /* Place video furthest back */
+}
+
+.auth-section .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.auth-section .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)); /* Darker overlay for better contrast */
+    z-index: -1; /* Place overlay behind content but over video */
+}
+
+.auth-container {
+    position: relative; /* Position container above video and overlay */
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly less transparent white background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    text-align: center;
+    max-width: 450px; /* Slightly wider container */
+    width: 90%; /* Responsive width */
+    opacity: 0; /* Start hidden for fade-in effect */
+    transform: translateY(20px); /* Start slightly lower */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Add transition */
+}
+
+.auth-section.aos-animate .auth-container {
+    opacity: 1; /* Fade in when AOS is active */
+    transform: translateY(0); /* Move to original position */
+}
+
+.auth-container h2 {
+    font-size: 2.4rem; /* Larger heading */
+    margin-bottom: 15px;
+    color: var(--color-primary);
+}
+
+.auth-container p {
+    margin-bottom: 30px;
+    color: var(--color-text);
+    font-size: 1.1rem;
+}
+
+/* Form Styles */
+.auth-form .form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.auth-form .input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.auth-form .input-group input {
+    width: 100%;
+    padding: 12px 15px 12px 40px; /* Adjusted padding for icon */
+    border: 2px solid var(--color-secondary);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form .input-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 8px rgba(139, 69, 19, 0.2);
+}
+
+.auth-form .input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-primary);
+    font-size: 1.1rem;
+}
+
+.auth-form .password-hint {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.auth-form .terms-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.auth-form .terms-checkbox input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: var(--color-primary);
+    width: 16px;
+    height: 16px;
+}
+
+.auth-form .terms-checkbox label {
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 0.95rem;
+}
+
+/* Password Toggle */
+.form-group .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    font-size: 1.1rem;
+    z-index: 2;
+}
+
+.auth-form .form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    color: var(--color-text);
+}
+
+.auth-form .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.auth-form .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+    accent-color: var(--color-primary);
+}
+
+.auth-form .forgot-password {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.auth-form .forgot-password:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+.auth-form .btn.primary {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.auth-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-secondary);
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.auth-footer p {
+    margin-bottom: 0;
+}
+
+.auth-footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.auth-footer a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 30px 20px;
+        max-width: 95%;
+    }
+
+    .auth-container h2 {
+        font-size: 2rem;
+    }
+
+    .auth-container p {
+        margin-bottom: 20px;
+    }
+
+    .auth-form .form-options {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .auth-form .input-group input {
+        padding: 10px 10px 10px 35px; /* Adjust padding for smaller screens */
+    }
+
+    .auth-form .input-group i {
+        left: 10px; /* Adjust icon position */
+        font-size: 1rem;
+    }
+
+    .form-group .toggle-password {
+        right: 10px; /* Adjust toggle position */
+        font-size: 1rem;
+    }
+
+    .auth-form .terms-checkbox label {
+        font-size: 0.9rem;
+    }
+} 

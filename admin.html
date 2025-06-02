@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Vintage Café</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="index.html">Vintage Café</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="booking.html">Book a Table</a>
+            <a href="about.html">About</a>
+            <a href="#" id="adminLogoutBtn">Logout</a>
+        </div>
+        <button class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Admin Dashboard Section -->
+    <section class="admin-section">
+        <div class="admin-grid">
+            <!-- Sidebar -->
+            <div class="admin-sidebar">
+                <div class="admin-profile">
+                    <div class="profile-image">
+                        <img id="adminProfileImage" src="images/admin-avatar.png" alt="Admin Profile">
+                    </div>
+                    <h3 id="adminName">Admin</h3>
+                    <p id="adminEmail">admin@vintagecafe.com</p>
+                </div>
+                <div class="admin-nav">
+                    <a href="#dashboard" class="active">
+                        <i class="fas fa-chart-line"></i>
+                        Dashboard
+                    </a>
+                    <a href="#orders">
+                        <i class="fas fa-shopping-cart"></i>
+                        Orders
+                    </a>
+                    <a href="#reservations">
+                        <i class="fas fa-calendar-alt"></i>
+                        Reservations
+                    </a>
+                    <a href="#menu">
+                        <i class="fas fa-utensils"></i>
+                        Menu Management
+                    </a>
+                    <a href="#users">
+                        <i class="fas fa-users"></i>
+                        Users
+                    </a>
+                    <a href="#settings">
+                        <i class="fas fa-cog"></i>
+                        Settings
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="admin-content">
+                <!-- Dashboard Overview -->
+                <div id="dashboard" class="content-section">
+                    <h2>Dashboard Overview</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card" data-aos="fade-up">
+                            <i class="fas fa-shopping-cart"></i>
+                            <div class="stat-info">
+                                <h3>Total Orders</h3>
+                                <p id="totalOrders">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                            <i class="fas fa-calendar-check"></i>
+                            <div class="stat-info">
+                                <h3>Active Reservations</h3>
+                                <p id="activeReservations">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                            <i class="fas fa-users"></i>
+                            <div class="stat-info">
+                                <h3>Total Users</h3>
+                                <p id="totalUsers">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                            <i class="fas fa-dollar-sign"></i>
+                            <div class="stat-info">
+                                <h3>Total Revenue</h3>
+                                <p id="totalRevenue">$0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recent-activity">
+                        <h3>Recent Activity</h3>
+                        <div class="activity-list" id="recentActivity">
+                            <!-- Activity items will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orders Management -->
+                <div id="orders" class="content-section" style="display: none;">
+                    <h2>Orders Management</h2>
+                    <div class="orders-filters">
+                        <select id="orderStatusFilter">
+                            <option value="all">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <input type="date" id="orderDateFilter">
+                        <button class="btn-primary" id="exportOrdersBtn">Export Orders</button>
+                    </div>
+                    <div class="orders-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <!-- Order rows will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Reservations Management -->
+                <div id="reservations" class="content-section" style="display: none;">
+                    <h2>Reservations Management</h2>
+                    <div class="reservations-filters">
+                        <select id="reservationStatusFilter">
+                            <option value="all">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <input type="date" id="reservationDateFilter">
+                        <button class="btn-primary" id="exportReservationsBtn">Export Reservations</button>
+                    </div>
+                    <div class="reservations-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Reservation ID</th>
+                                    <th>Customer</th>
+                                    <th>Date & Time</th>
+                                    <th>Guests</th>
+                                    <th>Table</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reservationsTableBody">
+                                <!-- Reservation rows will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Menu Management -->
+                <div id="menu" class="content-section" style="display: none;">
+                    <h2>Menu Management</h2>
+                    <div class="menu-actions">
+                        <button class="btn-primary" id="addMenuItemBtn">
+                            <i class="fas fa-plus"></i> Add New Item
+                        </button>
+                        <select id="menuCategoryFilter">
+                            <option value="all">All Categories</option>
+                            <option value="coffee">Coffee</option>
+                            <option value="tea">Tea</option>
+                            <option value="pastries">Pastries</option>
+                            <option value="desserts">Desserts</option>
+                        </select>
+                    </div>
+                    <div class="menu-items-grid" id="menuItemsGrid">
+                        <!-- Menu items will be dynamically added here -->
+                    </div>
+                </div>
+
+                <!-- Users Management -->
+                <div id="users" class="content-section" style="display: none;">
+                    <h2>Users Management</h2>
+                    <div class="users-filters">
+                        <input type="text" id="userSearchInput" placeholder="Search users...">
+                        <select id="userRoleFilter">
+                            <option value="all">All Roles</option>
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                        <button class="btn-primary" id="exportUsersBtn">Export Users</button>
+                    </div>
+                    <div class="users-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Joined Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <!-- User rows will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Settings -->
+                <div id="settings" class="content-section" style="display: none;">
+                    <h2>Settings</h2>
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3>Profile Settings</h3>
+                            <form id="adminProfileForm" class="settings-form">
+                                <div class="form-group">
+                                    <label for="adminFullName">Full Name</label>
+                                    <input type="text" id="adminFullName" name="fullName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminEmail">Email</label>
+                                    <input type="email" id="adminEmail" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminPassword">New Password</label>
+                                    <input type="password" id="adminPassword" name="password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminConfirmPassword">Confirm Password</label>
+                                    <input type="password" id="adminConfirmPassword" name="confirmPassword">
+                                </div>
+                                <button type="submit" class="btn-primary">Update Profile</button>
+                            </form>
+                        </div>
+                        <div class="settings-card">
+                            <h3>Business Settings</h3>
+                            <form id="businessSettingsForm" class="settings-form">
+                                <div class="form-group">
+                                    <label for="businessName">Business Name</label>
+                                    <input type="text" id="businessName" name="businessName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="businessEmail">Business Email</label>
+                                    <input type="email" id="businessEmail" name="businessEmail" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="businessPhone">Business Phone</label>
+                                    <input type="tel" id="businessPhone" name="businessPhone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="businessAddress">Business Address</label>
+                                    <textarea id="businessAddress" name="businessAddress" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="businessHours">Business Hours</label>
+                                    <textarea id="businessHours" name="businessHours" required></textarea>
+                                </div>
+                                <button type="submit" class="btn-primary">Update Settings</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Vintage Street, City</p>
+                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                <p><i class="fas fa-envelope"></i> info@vintagecafe.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <form id="newsletterForm" class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Vintage Café. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html> 

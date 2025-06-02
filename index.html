@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Café - European Style Coffee Experience</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>Vintage Café</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="booking.html" class="book-table">Book a Table</a>
+            <a href="login.html">Login</a>
+            <a href="#about">About Us</a>
+        </div>
+        <div class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Video Background -->
+    <section class="hero-video" data-aos="fade-in">
+        <div class="video-container">
+            <video autoplay muted loop playsinline>
+                <source src="assets/videos/raincf.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay"></div> <!-- Simple overlay for darkening -->
+        </div>
+        <div class="hero-content">
+            <h1>Welcome to Vintage Café</h1>
+            <p>Experience the authentic taste of European coffee culture</p>
+            <div class="hero-buttons">
+                <a href="menu.html" class="btn primary">View Menu</a>
+                <a href="booking.html" class="btn secondary">Book a Table</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" data-aos="fade-up">
+        <div class="container">
+            <h2>Our Story</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Founded in 2024, Vintage Café brings the charm and elegance of European coffee houses to your neighborhood. Our carefully curated space combines classic architecture with modern comfort, creating an atmosphere where time seems to stand still.</p>
+                    <p>Every cup of coffee tells a story, and we're here to share ours with you.</p>
+                </div>
+                <div class="about-image">
+                    <img src="assets/images/gallery/cafe-interior.jpg" alt="Café Interior" class="vintage-frame">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" data-aos="fade-up">
+        <div class="container">
+            <h2>Our Space</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="assets/images/gallery/interior-1.jpg" alt="Café Interior">
+                    <div class="gallery-caption">Cozy Interior</div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="assets/images/gallery/interior-2.jpg" alt="Reading Corner">
+                    <div class="gallery-caption">Reading Corner</div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="assets/images/gallery/interior-3.jpg" alt="Outdoor Seating">
+                    <div class="gallery-caption">Outdoor Seating</div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="assets/images/gallery/coffee-1.jpg" alt="Coffee Preparation">
+                    <div class="gallery-caption">Coffee Art</div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="assets/images/gallery/pastry-1.jpg" alt="Pastry Display">
+                    <div class="gallery-caption">Fresh Pastries</div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="assets/images/gallery/event-1.jpg" alt="Event Space">
+                    <div class="gallery-caption">Event Space</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours & Location -->
+    <section class="info" data-aos="fade-up">
+        <div class="container">
+            <div class="info-grid">
+                <div class="hours">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li>Monday - Friday: 7:00 AM - 10:00 PM</li>
+                        <li>Saturday: 8:00 AM - 11:00 PM</li>
+                        <li>Sunday: 8:00 AM - 9:00 PM</li>
+                    </ul>
+                </div>
+                <div class="location">
+                    <h3>Location</h3>
+                    <p>H75.15, Hoang Dieu Street</p>
+                    <p>Hai Chau District</p>
+                    <p>Da Nang, Vietnam</p>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.107692261754!2d108.2201!3d16.0477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142183d5c0c0c0f%3A0x0!2zSDc1LjE1IEjhuqNpIENow6J1IDEsIEjhuqNpIENow6J1IDEsIEjhuqNpIENow6J1LCDEkMOgIE7hurVuZyA1NTAwMDAsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1645564759146!5m2!1svi!2s" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@vintagecafe.com</p>
+                    <p>Phone: +84 123 456 789</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Vintage Café. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

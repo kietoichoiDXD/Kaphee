@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Vintage Café</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>Vintage Café</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="#" class="book-table">Book a Table</a>
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="index.html#about">About Us</a>
+        </div>
+        <div class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section" data-aos="fade-in">
+        <div class="container">
+            <div class="dashboard-grid">
+                <!-- Sidebar -->
+                <aside class="dashboard-sidebar">
+                    <div class="user-profile">
+                        <div class="profile-image">
+                            <img src="assets/images/default-avatar.jpg" alt="Profile Picture">
+                            <button class="edit-image">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <h3 id="userName">Loading...</h3>
+                        <p id="userEmail">Loading...</p>
+                    </div>
+                    
+                    <nav class="dashboard-nav">
+                        <a href="#profile" class="active">
+                            <i class="fas fa-user"></i>
+                            Profile
+                        </a>
+                        <a href="#orders">
+                            <i class="fas fa-shopping-bag"></i>
+                            Orders
+                        </a>
+                        <a href="#reservations">
+                            <i class="fas fa-calendar-alt"></i>
+                            Reservations
+                        </a>
+                        <a href="#favorites">
+                            <i class="fas fa-heart"></i>
+                            Favorites
+                        </a>
+                        <a href="#" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="dashboard-content">
+                    <!-- Profile Section -->
+                    <section id="profile" class="dashboard-section active">
+                        <h2>Profile Information</h2>
+                        <form id="profileForm" class="profile-form">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea id="address" name="address" rows="3"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn primary">Save Changes</button>
+                        </form>
+                    </section>
+
+                    <!-- Orders Section -->
+                    <section id="orders" class="dashboard-section">
+                        <h2>Order History</h2>
+                        <div class="orders-list">
+                            <!-- Orders will be dynamically loaded here -->
+                        </div>
+                    </section>
+
+                    <!-- Reservations Section -->
+                    <section id="reservations" class="dashboard-section">
+                        <h2>Table Reservations</h2>
+                        <div class="reservations-list">
+                            <!-- Reservations will be dynamically loaded here -->
+                        </div>
+                        <button class="btn primary" id="newReservationBtn">
+                            <i class="fas fa-plus"></i>
+                            New Reservation
+                        </button>
+                    </section>
+
+                    <!-- Favorites Section -->
+                    <section id="favorites" class="dashboard-section">
+                        <h2>Favorite Items</h2>
+                        <div class="favorites-grid">
+                            <!-- Favorite items will be dynamically loaded here -->
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@vintagecafe.com</p>
+                    <p>Phone: +1 234 567 890</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Vintage Café. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 
