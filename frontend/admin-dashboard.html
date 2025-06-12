@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Vintage Coffee</title>
+    <link rel="stylesheet" href="css/admin-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>Admin Panel</h3>
+            </div>
+            <ul class="sidebar-nav">
+                <li data-section="overview" class="active">
+                    <a href="#overview"><i class="fas fa-tachometer-alt"></i> Overview</a>
+                </li>
+                <li data-section="members">
+                    <a href="#members"><i class="fas fa-users"></i> Committee Members</a>
+                </li>
+                <li data-section="menu">
+                    <a href="#menu"><i class="fas fa-coffee"></i> Menu Management</a>
+                </li>
+                <li data-section="sales">
+                    <a href="#sales"><i class="fas fa-chart-line"></i> Sales & Revenue</a>
+                </li>
+                 <li data-section="inventory">
+                    <a href="#inventory"><i class="fas fa-boxes"></i> Inventory Management</a>
+                </li>
+                 <li data-section="inquiries">
+                    <a href="#inquiries"><i class="fas fa-question-circle"></i> Customer Inquiries</a>
+                </li>
+                <li data-section="settings">
+                    <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                </li>
+            </ul>
+             <div class="sidebar-footer">
+                <button id="logoutBtn" class="btn logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+        <div class="main-content">
+            <header>
+                <h1>Admin Dashboard</h1>
+            </header>
+            
+            <!-- Dashboard Overview Section -->
+            <div id="overview" class="dashboard-section active">
+                <h2>Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-info">
+                            <p class="stat-label">Total Members</p>
+                            <h3 class="stat-number">0</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="stat-info">
+                            <p class="stat-label">Monthly Revenue</p>
+                            <h3 class="stat-number">$0.00</h3>
+                        </div>
+                    </div>
+                     <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-coffee"></i></div>
+                        <div class="stat-info">
+                            <p class="stat-label">Total Menu Items</p>
+                            <h3 class="stat-number">0</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-shopping-cart"></i></div>
+                        <div class="stat-info">
+                            <p class="stat-label">Total Orders</p>
+                            <h3 class="stat-number">0</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="charts-container">
+                    <div class="chart-card">
+                        <h3>Monthly Revenue</h3>
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                     <div class="chart-card">
+                        <h3>Sales by Category</h3>
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Committee Members Section -->
+            <div id="members" class="dashboard-section">
+                <h2>Committee Members</h2>
+                <button class="add-btn"><i class="fas fa-plus"></i> Add New Member</button>
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="membersTableBody">
+                            <!-- Member rows will be loaded here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Menu Management Section -->
+            <div id="menu" class="dashboard-section">
+                <h2>Menu Management</h2>
+                 <button class="add-btn"><i class="fas fa-plus"></i> Add New Item</button>
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="menuTableBody">
+                            <!-- Menu item rows will be loaded here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Sales & Revenue Section -->
+            <div id="sales" class="dashboard-section">
+                <h2>Sales & Revenue</h2>
+                 <div class="chart-card">
+                        <h3>Weekly Revenue</h3>
+                        <canvas id="monthlyRevenueChart"></canvas>
+                    </div>
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Item</th>
+                                <th>Quantity</th>
+                                <th>Revenue</th>
+                                <th>Profit</th>
+                            </tr>
+                        </thead>
+                        <tbody id="salesTableBody">
+                            <!-- Sales rows will be loaded here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+             <!-- Inventory Management Section -->
+            <div id="inventory" class="dashboard-section">
+                <h2>Inventory Management</h2>
+                <div class="inventory-summary">
+                    <div class="summary-card low-stock">
+                        <h3>Low Stock Items</h3>
+                        <div id="lowStockList" class="item-list">
+                            <!-- Low stock items loaded here -->
+                        </div>
+                    </div>
+                    <div class="summary-card out-of-stock">
+                        <h3>Out of Stock Items</h3>
+                         <div id="outOfStockList" class="item-list">
+                            <!-- Out of stock items loaded here -->
+                        </div>
+                    </div>
+                </div>
+                 <button class="add-btn"><i class="fas fa-plus"></i> Add New Item</button>
+                 <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Category</th>
+                                <th>Current Stock</th>
+                                <th>Reorder Level</th>
+                                <th>Last Restocked</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventoryTableBody">
+                            <!-- Inventory item rows will be loaded here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Customer Inquiries Section -->
+            <div id="inquiries" class="dashboard-section">
+                <h2>Customer Inquiries</h2>
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Dish</th>
+                                <th>Customer Name</th>
+                                <th>Customer Email</th>
+                                <th>Message</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inquiriesTableBody">
+                            <!-- Inquiry rows will be loaded here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <div id="settings" class="dashboard-section">
+                <h2>Settings</h2>
+                <form class="settings-form">
+                    <div class="form-group">
+                        <label for="siteTitle">Site Title</label>
+                        <input type="text" id="siteTitle" value="Vintage Coffee">
+                    </div>
+                     <div class="form-group">
+                        <label for="adminEmail">Admin Email</label>
+                        <input type="email" id="adminEmail" value="admin@vintagecafe.com">
+                    </div>
+                    <button type="submit" class="save-btn"><i class="fas fa-save"></i> Save Settings</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modals (Add/Edit forms) -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div class="modal-body">
+                <!-- Form content will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+</body>
+</html> 

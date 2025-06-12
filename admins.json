@@ -1,0 +1,24 @@
+{
+  "admins": [
+    {
+      "id": "ADM001",
+      "username": "admin1",
+      "password": "hashed_password_here",
+      "fullName": "John Doe",
+      "email": "john.doe@kaphee.com",
+      "role": "super_admin",
+      "createdAt": "2024-01-01T00:00:00Z",
+      "lastLogin": "2024-03-15T10:30:00Z"
+    },
+    {
+      "id": "ADM002",
+      "username": "manager1",
+      "password": "hashed_password_here",
+      "fullName": "Jane Smith",
+      "email": "jane.smith@kaphee.com",
+      "role": "manager",
+      "createdAt": "2024-01-15T00:00:00Z",
+      "lastLogin": "2024-03-14T15:45:00Z"
+    }
+  ]
+} 

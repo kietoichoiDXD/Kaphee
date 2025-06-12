@@ -1,0 +1,26 @@
+{
+  "bookings": [
+    {
+      "id": "BK001",
+      "customerId": "CUST001",
+      "date": "2024-03-20",
+      "time": "19:00",
+      "partySize": 4,
+      "status": "confirmed",
+      "specialRequests": "Window seat preferred",
+      "createdAt": "2024-03-15T10:00:00Z",
+      "tableNumber": "T12"
+    },
+    {
+      "id": "BK002",
+      "customerId": "CUST002",
+      "date": "2024-03-21",
+      "time": "20:30",
+      "partySize": 2,
+      "status": "pending",
+      "specialRequests": "Allergic to nuts",
+      "createdAt": "2024-03-16T14:30:00Z",
+      "tableNumber": null
+    }
+  ]
+} 

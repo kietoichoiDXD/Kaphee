@@ -2,15 +2,8 @@
   {
     "fullName": "John Doe",
     "email": "john.doe@example.com",
-    "password": "hashedpassword123", // Remember to hash passwords in a real application!
-    "role": "user", // e.g., 'user', 'admin'
+    "password": "hashedpassword123",
+    "role": "user",
     "createdAt": { "$date": "2024-01-15T10:00:00Z" }
   },
-  {
-    "fullName": "Admin User",
-    "email": "admin@vintagecafe.com",
-    "password": "hashedadminpassword", // Remember to hash passwords in a real application!
-    "role": "admin", // e.g., 'user', 'admin'
-    "createdAt": { "$date": "2024-01-16T11:30:00Z" }
-  }
-] 
+  

@@ -1,0 +1,45 @@
+{
+  "name": "vintage-cafe",
+  "version": "1.0.0",
+  "description": "Vintage Café - European Style Coffee Experience",
+  "main": "backend/index.js",
+  "scripts": {
+    "start": "node start.js",
+    "build": "npm run install-deps && npm run seed",
+    "install-deps": "npm install && cd backend && npm install",
+    "seed": "cd backend && npm run seed",
+    "backend": "cd backend && npm run dev",
+    "frontend": "npx live-server --port=3000",
+    "dev": "npm run start",
+    "mongo-ops": "cd backend && node scripts/mongo-operations.js",
+    "mongo-stats": "cd backend && node scripts/mongo-operations.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "cafe",
+    "coffee",
+    "restaurant",
+    "vintage",
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}{
+  "scripts": {
+    "start": "node backend/index.js",
+    "dev": "node backend/index.js"
+  }
+}// start.js
+const path = require('path');
+require(path.join(__dirname, 'backend', 'index.js'));{
+  "scripts": {
+    "start": "node backend/index.js",
+    "dev": "node backend/index.js"
+  }
+}# Tạo file start.js
+echo "require('./backend/index.js');" > start.js

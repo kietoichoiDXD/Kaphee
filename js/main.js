@@ -146,19 +146,72 @@ document.querySelectorAll('.gallery-item').forEach(item => {
     });
 });
 
-// Check if user is logged in
-function checkAuthStatus() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    const loginLink = document.querySelector('a[href="login.html"]');
+// Check if user is logged in and update UI
+function updateUIBasedOnAuth() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     
-    if (isLoggedIn === 'true' && loginLink) {
-        loginLink.textContent = 'Dashboard';
-        loginLink.href = 'dashboard.html';
+    // Select navigation links by their href or content
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const heroBookTableBtn = document.querySelector('.hero-buttons .book-table');
+    const bookingSection = document.getElementById('bookingSection'); // Still using ID for the section
+
+    navLinks.forEach(link => {
+        // Determine which link this is by its href or text content
+        const href = link.getAttribute('href');
+        const text = link.textContent.trim();
+
+        if (href === 'login.html') {
+            if (isLoggedIn) {
+                link.style.display = 'none'; // Hide Login link if logged in
+            } else {
+                link.style.display = ''; // Show Login link if not logged in
+            }
+        } else if (href === 'dashboard.html') {
+             if (isLoggedIn) {
+                link.style.display = ''; // Show Dashboard link if logged in
+            } else {
+                link.style.display = 'none'; // Hide Dashboard link if not logged in
+            }
+        } else if (href === 'booking.html') {
+             if (isLoggedIn) {
+                link.style.display = ''; // Show Book a Table link if logged in
+            } else {
+                link.style.display = 'none'; // Hide Book a Table link if not logged in
+            }
+        } else {
+            // For other links (Home, Menu, About Us), always show them
+            link.style.display = '';
+        }
+    });
+
+    // Handle the 'Book a Table' button in the hero section (index.html)
+    if (heroBookTableBtn) {
+        if (isLoggedIn) {
+            heroBookTableBtn.style.display = 'inline-block';
+        } else {
+            heroBookTableBtn.style.display = 'none';
+        }
+    }
+    
+    // Handle the entire booking section content on booking.html
+    if (bookingSection) {
+        if (isLoggedIn) {
+            bookingSection.style.display = 'block'; // Or appropriate display type
+        } else {
+            // Option 1: Redirect to login page
+            // window.location.href = 'login.html';
+             
+            // Option 2: Display a message (less ideal for restricted access)
+            bookingSection.innerHTML = '<div style="text-align: center; padding: 50px;"><h2>Please log in to book a table.</h2><p><a href="login.html">Go to Login</a></p></div>';
+            bookingSection.style.display = 'block'; // Show the message container
+        }
     }
 }
 
-// Run auth check on page load
-document.addEventListener('DOMContentLoaded', checkAuthStatus);
+// Run UI update on page load and potentially after auth state changes
+document.addEventListener('DOMContentLoaded', updateUIBasedOnAuth);
+
+// Assuming login/logout logic in auth.js will also call updateUIBasedOnAuth() after state change.
 
 // Video handling
 document.addEventListener('DOMContentLoaded', function() {

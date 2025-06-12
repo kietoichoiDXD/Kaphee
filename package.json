@@ -1,26 +1,28 @@
 {
-  "name": "vintage-cafe",
+  "name": "kaphee",
   "version": "1.0.0",
-  "description": "Vintage Café - European Style Coffee Experience",
-  "main": "index.js",
+  "description": "KAPHEE - Café Management System",
+  "main": "backend/index.js",
   "scripts": {
-    "dev": "live-server",
-    "process-images": "node scripts/process-images.js",
-    "start": "npm run dev"
+    "start": "node backend/index.js",
+    "dev": "nodemon backend/index.js",
+    "build": "npm run install-deps",
+    "install-deps": "npm install && cd backend && npm install",
+    "frontend": "npx live-server --port=3000",
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "keywords": [
     "cafe",
     "coffee",
     "restaurant",
-    "vintage"
+    "management",
+    "nodejs",
+    "express"
   ],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "sharp": "^0.33.2",
-    "glob": "^10.3.10"
-  },
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "nodemon": "^2.0.22"
   }
 }

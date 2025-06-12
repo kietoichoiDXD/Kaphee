@@ -1,0 +1,52 @@
+{
+  "menuItems": [
+    {
+      "id": "M001",
+      "name": "Classic Cappuccino",
+      "description": "Espresso with steamed milk and a silky layer of foam",
+      "category": "Hot Coffee",
+      "price": 4.50,
+      "imageUrl": "/images/cappuccino.jpg",
+      "isAvailable": true,
+      "ingredients": ["Espresso", "Steamed Milk", "Milk Foam"],
+      "nutritionalInfo": {
+        "calories": 120,
+        "protein": "6g",
+        "carbs": "12g",
+        "fat": "5g"
+      }
+    },
+    {
+      "id": "M002",
+      "name": "Avocado Toast",
+      "description": "Sourdough bread topped with fresh avocado, cherry tomatoes, and microgreens",
+      "category": "Food",
+      "price": 8.99,
+      "imageUrl": "/images/avocado-toast.jpg",
+      "isAvailable": true,
+      "ingredients": ["Sourdough Bread", "Avocado", "Cherry Tomatoes", "Microgreens", "Olive Oil", "Sea Salt"],
+      "nutritionalInfo": {
+        "calories": 320,
+        "protein": "8g",
+        "carbs": "35g",
+        "fat": "18g"
+      }
+    },
+    {
+      "id": "M003",
+      "name": "Iced Matcha Latte",
+      "description": "Premium matcha green tea powder with cold milk and ice",
+      "category": "Cold Drinks",
+      "price": 5.50,
+      "imageUrl": "/images/matcha-latte.jpg",
+      "isAvailable": true,
+      "ingredients": ["Matcha Powder", "Milk", "Ice", "Honey"],
+      "nutritionalInfo": {
+        "calories": 140,
+        "protein": "7g",
+        "carbs": "15g",
+        "fat": "6g"
+      }
+    }
+  ]
+} 
